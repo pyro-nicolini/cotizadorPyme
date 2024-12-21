@@ -12,10 +12,12 @@ function generarCotizacion() {
     const precioBase = parseFloat(document.getElementById('precioBase').value);
     const equiposInclusion = document.getElementById('equiposInclusion').value;
 
+    const cotizador = document.querySelector('h1').innerText;
+
     if (!numeroCotizacion || !nombreCliente || !tipoEvento || !fechaEvento || !duracionEvento || !tipoMuro || !direccionEvento || !horaEvento || isNaN(precioBase)) {
         alert('Por favor, complete todos los campos requeridos antes de generar la cotización.');
-        return;
-    }
+        // return;
+    } 
 
     const iva = precioBase * 0.19;
     const valorTotal = precioBase + iva;
@@ -25,22 +27,27 @@ function generarCotizacion() {
     const doc = new jsPDF();
 
     // Establecer el fondo del documento
-    doc.setFillColor(115, 187, 255); // Color de fondo del documento
+    doc.setFillColor(47, 7, 69); // Color de fondo del documento
+    doc.setTextColor(255, 255, 255); 
     doc.rect(0, 0, doc.internal.pageSize.width, doc.internal.pageSize.height, 'F');
 
     const img1 = new Image();
     img1.src = 'https://i0.wp.com/escalandia.cl/wp-content/uploads/2024/08/big_escalandia.webp?w=1024&ssl=1';
     img1.onload = function() {
-        doc.addImage(img1, 'WEBP', 50, 5, 100, 40);
+        doc.addImage(img1, 'WEBP', 40, 5, 100, 40);
+
+        doc.text(cotizador, 50, 50);
 
         const img2 = new Image();
         img2.src = 'https://i0.wp.com/escalandia.cl/wp-content/uploads/2024/08/mall1-2.webp?w=800&ssl=1';
         img2.onload = function() {
             doc.addImage(img2, 'WEBP', 0, 110, 210, 150);
 
+            
+
             const datosGenerales = [
                 ['Número de Cotización', numeroCotizacion],
-                ['Nombre del Cliente', nombreCliente],
+                ['Contacto', nombreCliente],
                 ['Tipo de Evento', tipoEvento],
                 ['Fecha del Evento', fechaEvento],
                 ['Duración del Evento (Horas)', duracionEvento],
@@ -57,7 +64,11 @@ function generarCotizacion() {
                 head: headersGenerales,
                 body: datosGenerales,
                 startY: 60,
-                theme: 'grid'
+                theme: 'grid',
+                styles: {
+                    textColor: [255, 255, 255], // Color blanco para el texto dentro de las tablas
+                    fillColor: [47, 7, 69] // Opcional: Color de fondo de las celdas
+                }
             });
 
             const datosPrecios = [
@@ -72,7 +83,11 @@ function generarCotizacion() {
                 head: headersPrecios,
                 body: datosPrecios,
                 startY: doc.autoTable.previous.finalY + 10,
-                theme: 'grid'
+                theme: 'grid',
+                styles: {
+                    textColor: [255, 255, 255], // Color blanco para el texto dentro de las tablas
+                    fillColor: [47, 7, 69] // Opcional: Color de fondo de las celdas
+                }
             });
 
             const datosBancarios = [
@@ -89,7 +104,11 @@ function generarCotizacion() {
                 head: headersBancarios,
                 body: datosBancarios,
                 startY: doc.autoTable.previous.finalY + 10,
-                theme: 'grid'
+                theme: 'grid',
+                styles: {
+                    textColor: [255, 255, 255], // Color blanco para el texto dentro de las tablas
+                    fillColor: [47, 7, 69] // Opcional: Color de fondo de las celdas
+                }
             });
 
             const datosReserva = [
@@ -103,7 +122,11 @@ function generarCotizacion() {
                 head: headersReserva,
                 body: datosReserva,
                 startY: doc.autoTable.previous.finalY + 10,
-                theme: 'grid'
+                theme: 'grid',
+                styles: {
+                    textColor: [255, 255, 255], // Color blanco para el texto dentro de las tablas
+                    fillColor: [47, 7, 69] // Opcional: Color de fondo de las celdas
+                }
             });
 
             doc.text('**Cotización válida por 15 días. Damos prioridad a quien reserva primero.', 10, doc.autoTable.previous.finalY + 11);
