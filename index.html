@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cotizador de Escalandia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Cotizador de Escalandia</h1>
+    <form id="cotizacionForm">
+        <label for="numeroCotizacion">Número de Cotización:
+        <input type="text" id="numeroCotizacion" name="numeroCotizacion"></label>
+
+        <label for="nombreCliente">Nombre del Cliente:
+        <input type="text" id="nombreCliente" name="nombreCliente"></label>
+
+        <label for="tipoEvento">Tipo de Evento:
+        <select id="tipoEvento" name="tipoEvento">
+            <option value="">Seleccionar tipo de evento...</option>
+            <option value="cumpleanos">Cumpleaños</option>
+            <option value="eventoEscolar">Evento Escolar</option>
+            <option value="eventoEmpresarial">Evento Empresarial</option>
+        </select></label>
+
+        <label for="fechaEvento">Fecha del Evento:
+        <input type="date" id="fechaEvento" name="fechaEvento"></label>
+
+        <label for="duracionEvento">Duración del Evento (Horas):
+        <input type="number" id="duracionEvento" name="duracionEvento" min="1"></label>
+
+        <label for="direccionEvento">Dirección del Evento:
+        <input type="text" id="direccionEvento" name="direccionEvento"></label>
+
+        <label for="horaEvento">Horario del Evento:
+        <select id="horaEvento" name="horaEvento">
+            <option value="">Seleccionar horario...</option>
+            <option value="08:00-11:00">08:00 a 11:00</option>
+            <option value="09:00-12:00">09:00 a 12:00</option>
+            <option value="10:00-13:00">10:00 a 13:00</option>
+            <option value="11:00-14:00">11:00 a 14:00</option>
+            <option value="12:00-15:00">12:00 a 15:00</option>
+            <option value="13:00-16:00">13:00 a 16:00</option>
+            <option value="14:00-17:00">14:00 a 17:00</option>
+            <option value="15:00-18:00">15:00 a 18:00</option>
+            <option value="16:00-19:00">16:00 a 19:00</option>
+            <option value="17:00-20:00">17:00 a 20:00</option>
+            <option value="18:00-21:00">18:00 a 21:00</option>
+        </select></label>
+
+        <label for="fechaInstalacion">Fecha y Hora de Instalación:
+        <input type="datetime-local" id="fechaInstalacion" name="fechaInstalacion"></label></label>
+
+        <label for="tipoMuro">Tipo de Servicio:
+        <select id="tipoMuro" name="tipoMuro">
+            <option value="">Seleccionar tipo de servicio...</option>
+            <option value="6 Metros">Muro 6 Metros</option>
+            <option value="slackline">Slackline</option>
+        </select></label>
+
+        <label for="precioBase">Precio Base (Ingrese el monto manualmente):
+        <input type="number" id="precioBase" name="precioBase" min="80000" step="any"></label>
+
+        <label for="equiposInclusion">Incluye: 
+        <select id="equiposInclusion" name="equiposInclusion">
+            <option value=""> </option>
+            <option value="incluye">Cascos, arnés, cuerda, equipos de seguridad, supervisión 100%:</option>
+        </select></label>
+
+        <button type="button" onclick="generarCotizacion()">Generar Cotización</button>
+    </form>
+
+    <div id="cotizacionViewer"></div>
+
+    <script src="index.js">
+    </script>
+</body>
+</html>
