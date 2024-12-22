@@ -2,6 +2,7 @@
 function generarCotizacion() {
     const numeroCotizacion = document.getElementById('numeroCotizacion').value;
     const nombreCliente = document.getElementById('nombreCliente').value;
+    const nombreEmpresa = document.getElementById('nombreEmpresa').value;
     const tipoEvento = document.getElementById('tipoEvento').value;
     const fechaEvento = document.getElementById('fechaEvento').value;
     const duracionEvento = document.getElementById('duracionEvento').value;
@@ -14,7 +15,7 @@ function generarCotizacion() {
 
     const cotizador = document.querySelector('h1').innerText;
 
-    if (!numeroCotizacion || !nombreCliente || !tipoEvento || !fechaEvento || !duracionEvento || !tipoMuro || !direccionEvento || !horaEvento || isNaN(precioBase)) {
+    if (!numeroCotizacion || !nombreCliente || !nombreEmpresa || !tipoEvento || !fechaEvento || !duracionEvento || !tipoMuro || !direccionEvento || !horaEvento || isNaN(precioBase)) {
         alert('Por favor, complete todos los campos requeridos antes de generar la cotización.');
         // return;
     } 
@@ -46,15 +47,16 @@ function generarCotizacion() {
             
 
             const datosGenerales = [
-                ['Número de Cotización', numeroCotizacion],
-                ['Contacto', nombreCliente],
-                ['Tipo de Evento', tipoEvento],
-                ['Fecha del Evento', fechaEvento],
-                ['Duración del Evento (Horas)', duracionEvento],
-                ['Dirección del Evento', direccionEvento],
-                ['Horario del Evento', horaEvento],
-                ['Fecha y Hora de Instalación', fechaInstalacion],
-                ['Tipo de Servicio', tipoMuro === "6 Metros" ? "Muro 6 Metros" : "Slackline"],
+                ['N° Cotización:', numeroCotizacion],
+                ['Contacto:', nombreCliente],
+                ['Empresa:', nombreEmpresa],
+                ['Tipo de Evento:', tipoEvento],
+                ['Fecha del Evento:', fechaEvento],
+                ['Duración del Evento (Horas):', duracionEvento],
+                ['Horario del Evento:', horaEvento],
+                ['Dirección del Evento:', direccionEvento],
+                ['Fecha y Hora de Instalación:', fechaInstalacion],
+                ['Tipo de Servicio:', tipoMuro === "6 Metros" ? "Muro 6 Metros" : "Slackline"],
                 ['Incluye: ', equiposInclusion === "incluye" ? "Cascos, arnés, cuerda, equipos de seguridad, supervisión 100%" : " "]
             ];
 
@@ -72,9 +74,9 @@ function generarCotizacion() {
             });
 
             const datosPrecios = [
-                ['Subtotal (Neto)', `$${precioBase.toLocaleString()}`],
-                ['IVA (19%)', `$${iva.toLocaleString()}`],
-                ['Valor Total', `$${valorTotal.toLocaleString()}`]
+                ['Sub-Total (Neto):', `$${precioBase.toLocaleString()}`],
+                ['IVA (19%):', `$${iva.toLocaleString()}`],
+                ['Valor Total:', `$${valorTotal.toLocaleString()}`]
             ];
 
             const headersPrecios = [['Descripción', 'Valores']];
@@ -91,11 +93,11 @@ function generarCotizacion() {
             });
 
             const datosBancarios = [
-                ['Banco', 'Banco Estado - Chequera Electrónica'],
-                ['N° Cuenta', '23670189651'],
-                ['Titular', 'Producciones Deportivas Piero Nicolini Perales EIRL'],
-                ['RUT', '76.756.323-K'],
-                ['Email', 'piero@escalandia.cl']
+                ['Banco:', 'Banco Estado - Chequera Electrónica'],
+                ['N° Cuenta:', '23670189651'],
+                ['Titular:', 'Producciones Deportivas Piero Nicolini Perales EIRL'],
+                ['RUT:', '76.756.323-K'],
+                ['Email:', 'piero@escalandia.cl']
             ];
 
             const headersBancarios = [['Datos ', 'Bancarios']];
@@ -112,8 +114,8 @@ function generarCotizacion() {
             });
 
             const datosReserva = [
-                ['50% Inicial', `$${reserva.toLocaleString()}`],
-                ['50% Post Evento', `$${reserva.toLocaleString()}`]
+                ['50% Previo Evento:', `$${reserva.toLocaleString()}`],
+                ['50% Post-Evento:', `$${reserva.toLocaleString()}`]
             ];
 
             const headersReserva = [['Reserva', 'Valor']];
