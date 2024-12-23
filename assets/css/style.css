@@ -1,12 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    background: linear-gradient(#180252, #333333 80%);
+    background: linear-gradient(#180252, #551e5c 80%);
     height: 100vh;
     background-attachment: fixed;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: start;
 }
 
 .logo {
@@ -48,13 +49,13 @@ input, select, button {
 
 
 button {
-    border: none !important;
+    border: rgb(226, 241, 16) 3px dotted !important;
     width: auto;
-    background-color: #ea00ff;
-    color: white;
+    background: linear-gradient(#0571ff, #3c01b3);
+    color: rgb(255, 255, 255);
     border-radius: 40px;
     cursor: pointer;
-    padding: .5rem 1rem;
+    padding: 1rem 2rem;
 }
 
 h1,form {
@@ -77,23 +78,24 @@ h1,form {
     }
     
     form {
-        width: 1000px;        
+        width: 1600px;        
         justify-content: space-between;
     }
     
     label, input, select, button {
-        font-size: 10px;
+        font-size: 18px;
         border: none !important;
         margin-top: 10px;
     }
 
     input, select, option, textarea {
         height: 10px;
-        width: 200px;
+        width: 290px;
     }
 
     button {
         margin: 0 40%;
+        border: rgb(226, 241, 16) 3px dotted !important;
     }
     
 }
