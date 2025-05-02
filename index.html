@@ -1,84 +1,224 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Cotizador de Escalandia</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <img class="logo" src="assets/img/escalandiaCenter.png" alt="">
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <img class="logo" src="assets/img/escalandiaCenter.png" alt="" />
     <h1>Cotización Actividad Escalandia®</h1>
     <form id="cotizacionForm">
-        <div>
-            <label for="numeroCotizacion">Cotización N°:
-            <input type="number" id="numeroCotizacion" name="numeroCotizacion" min="400"></label>
-    
-            <label for="nombreCliente">Nombre del Cliente:
-            <input type="text" id="nombreCliente" name="nombreCliente"></label>
-    
-            <label for="nombreEmpresa">Nombre Empresa:
-            <input type="text" id="nombreEmpresa" name="nombreEmpresa"></label>
-                <br>
-                <label for="tipoEvento">Tipo de Evento:
-                    <select id="tipoEvento" name="tipoEvento">
-                        <option value="">Seleccionar tipo de evento...</option>
-                        <option value="cumpleanos">Cumpleaños</option>
-                        <option value="eventoEscolar">Evento Escolar</option>
-                        <option value="eventoEmpresarial">Evento Empresarial</option>
-                    </select></label>
-                    
-                    <label for="fechaEvento">Fecha del Evento:
-                        <input type="date" id="fechaEvento" name="fechaEvento"></label>
-                        
-                        <label for="duracionEvento">Duración del Evento (Horas):
-                            <input type="number" id="duracionEvento" name="duracionEvento" min="1"></label>
-                        </div>
-                        <div>          
-                            <label for="direccionEvento">Dirección del Evento:
-                                <input type="text" id="direccionEvento" name="direccionEvento"></label>
-                                
-                                <label for="horaEvento">Horario del Evento:
-                                    <select id="horaEvento" name="horaEvento">
-                                        <option value="">Seleccionar horario...</option>
-                                        <option value="08:00-11:00">08:00 a 11:00</option>
-                                        <option value="09:00-12:00">09:00 a 12:00</option>
-                                        <option value="10:00-13:00">10:00 a 13:00</option>
-                                        <option value="11:00-14:00">11:00 a 14:00</option>
-                                        <option value="12:00-15:00">12:00 a 15:00</option>
-                                        <option value="13:00-16:00">13:00 a 16:00</option>
-                                        <option value="14:00-17:00">14:00 a 17:00</option>
-                                        <option value="15:00-18:00">15:00 a 18:00</option>
-                                        <option value="16:00-19:00">16:00 a 19:00</option>
-                                        <option value="17:00-20:00">17:00 a 20:00</option>
-                                        <option value="18:00-21:00">18:00 a 21:00</option>
-                                    </select></label>
-                                    
-                                    <label for="fechaInstalacion">Fecha y Hora de Instalación:
-                                        <input type="datetime-local" id="fechaInstalacion" name="fechaInstalacion"></label></label>
-                                        
-                                        <br>
-                    <label for="tipoMuro">Tipo de Servicio:
-                    <select id="tipoMuro" name="tipoMuro">
-                        <option value="">Seleccionar tipo de servicio...</option>
-                        <option value="6 Metros">Muro 6 Metros</option>
-                        <option value="slackline">Slackline</option>
-                    </select></label>
-            
-                    <label for="precioBase">Precio Base (Ingrese el monto manualmente):
-                    <input type="number" id="precioBase" name="precioBase" min="80000" step="any"></label>
-            
-                    <label for="equiposInclusion">Incluye: 
-                    <select id="equiposInclusion" name="equiposInclusion">
-                        <option value=""> </option>
-                        <option value="incluye">Cascos, arnés, cuerda, equipos de seguridad, supervisión 100%:</option>
-                    </select></label>
-            
-                    <button type="button" onclick="generarCotizacion()">Generar Cotización</button>
-        </div>
+      <div>
+        <label for="numeroCotizacion"
+          >Cotización N°:
+          <input
+            type="number"
+            id="numeroCotizacion"
+            name="numeroCotizacion"
+            min="420"
+        /></label>
+        <br />
+        <label for="nombreCliente"
+          >Nombre: <input type="text" id="nombreCliente" name="nombreCliente"
+        /></label>
+        <br />
+        <label for="fonoCliente"
+          >Contacto: <input type="text" id="fonoCliente" name="fonoCliente"
+        /></label>
+        <br />
+        <label for="nombreEmpresa"
+          >Empresa: <input type="text" id="nombreEmpresa" name="nombreEmpresa"
+        /></label>
+        <br />
+        <label for="rutEmpresa"
+          >Rut: <input type="text" id="rutEmpresa" name="rutEmpresa"
+        /></label>
+        <br />
+        <label for="tipoEvento"
+          >Tipo de Evento:
+          <select id="tipoEvento" name="tipoEvento">
+            <option value="">Seleccionar tipo de evento...</option>
+            <option value="cumpleanos">Cumpleaños</option>
+            <option value="eventoEscolar">Evento Escolar</option>
+            <option value="eventoEmpresarial">Evento Empresarial</option>
+          </select>
+        </label>
+        <br />
+        <label for="fechaEvento"
+          >Fecha del Evento:
+          <input type="date" id="fechaEvento" name="fechaEvento"
+        /></label>
+        <br />
+        <label for="duracionEvento"
+          >Duración del Evento (Horas):
+          <input
+            type="number"
+            id="duracionEvento"
+            name="duracionEvento"
+            min="1"
+        /></label>
+      </div>
+      <br />
+      <div>
+        <label for="direccionEvento"
+          >Dirección del Evento:
+          <input type="text" id="direccionEvento" name="direccionEvento" />
+        </label>
+        <br />
+        <label for="horaEvento"
+          >Horario del Evento:
+          <select id="horaInicio" name="horaInicio">
+            <option value="">Hora Inicial</option>
+            <option value="0">00:00</option>
+            <option value="0.5">00:30</option>
+            <option value="1">01:00</option>
+            <option value="1.5">01:30</option>
+            <option value="2">02:00</option>
+            <option value="2.5">02:30</option>
+            <option value="3">03:00</option>
+            <option value="3.5">03:30</option>
+            <option value="4">04:00</option>
+            <option value="4.5">04:30</option>
+            <option value="5">05:00</option>
+            <option value="5.5">05:30</option>
+            <option value="6">06:00</option>
+            <option value="6.5">06:30</option>
+            <option value="7">07:00</option>
+            <option value="7.5">07:30</option>
+            <option value="8">08:00</option>
+            <option value="8.5">08:30</option>
+            <option value="9">09:00</option>
+            <option value="9.5">09:30</option>
+            <option value="10">10:00</option>
+            <option value="10.5">10:30</option>
+            <option value="11">11:00</option>
+            <option value="11.5">11:30</option>
+            <option value="12">12:00</option>
+            <option value="12.5">12:30</option>
+            <option value="13">13:00</option>
+            <option value="13.5">13:30</option>
+            <option value="14">14:00</option>
+            <option value="14.5">14:30</option>
+            <option value="15">15:00</option>
+            <option value="15.5">15:30</option>
+            <option value="16">16:00</option>
+            <option value="16.5">16:30</option>
+            <option value="17">17:00</option>
+            <option value="17.5">17:30</option>
+            <option value="18">18:00</option>
+            <option value="18.5">18:30</option>
+            <option value="19">19:00</option>
+            <option value="19.5">19:30</option>
+            <option value="20">20:00</option>
+            <option value="20.5">20:30</option>
+            <option value="21">21:00</option>
+            <option value="21.5">21:30</option>
+            <option value="22">22:00</option>
+            <option value="22.5">22:30</option>
+            <option value="23">23:00</option>
+            <option value="23.5">23:30</option>
+          </select>
+          <select id="horaTermino" name="horaTermino">
+            <option value="">Hora Inicial</option>
+            <option value="0">00:00</option>
+            <option value="0.5">00:30</option>
+            <option value="1">01:00</option>
+            <option value="1.5">01:30</option>
+            <option value="2">02:00</option>
+            <option value="2.5">02:30</option>
+            <option value="3">03:00</option>
+            <option value="3.5">03:30</option>
+            <option value="4">04:00</option>
+            <option value="4.5">04:30</option>
+            <option value="5">05:00</option>
+            <option value="5.5">05:30</option>
+            <option value="6">06:00</option>
+            <option value="6.5">06:30</option>
+            <option value="7">07:00</option>
+            <option value="7.5">07:30</option>
+            <option value="8">08:00</option>
+            <option value="8.5">08:30</option>
+            <option value="9">09:00</option>
+            <option value="9.5">09:30</option>
+            <option value="10">10:00</option>
+            <option value="10.5">10:30</option>
+            <option value="11">11:00</option>
+            <option value="11.5">11:30</option>
+            <option value="12">12:00</option>
+            <option value="12.5">12:30</option>
+            <option value="13">13:00</option>
+            <option value="13.5">13:30</option>
+            <option value="14">14:00</option>
+            <option value="14.5">14:30</option>
+            <option value="15">15:00</option>
+            <option value="15.5">15:30</option>
+            <option value="16">16:00</option>
+            <option value="16.5">16:30</option>
+            <option value="17">17:00</option>
+            <option value="17.5">17:30</option>
+            <option value="18">18:00</option>
+            <option value="18.5">18:30</option>
+            <option value="19">19:00</option>
+            <option value="19.5">19:30</option>
+            <option value="20">20:00</option>
+            <option value="20.5">20:30</option>
+            <option value="21">21:00</option>
+            <option value="21.5">21:30</option>
+            <option value="22">22:00</option>
+            <option value="22.5">22:30</option>
+            <option value="23">23:00</option>
+            <option value="23.5">23:30</option>
+          </select></label
+        >
+        <br />
+        <label for="fechaInstalacion"
+          >Fecha y Hora de Instalación:
+          <input
+            type="datetime-local"
+            id="fechaInstalacion"
+            name="fechaInstalacion"
+          />
+        </label>
+        <br />
+        <label for="tipoMuro"
+          >Tipo de Servicio:
+          <select id="tipoMuro" name="tipoMuro">
+            <option value="">Seleccionar tipo de servicio...</option>
+            <option value="6 Metros">Muro 6 Metros</option>
+            <option value="slackline">Slackline</option>
+          </select>
+        </label>
+        <label for="precioBase"
+          >Precio Base (Ingrese el monto manualmente):
+          <input
+            type="number"
+            id="precioBase"
+            name="precioBase"
+            min="80000"
+            step="any"
+          />
+        </label>
+        <label for="equiposInclusion"
+          >Incluye:
+          <select id="equiposInclusion" name="equiposInclusion">
+            <option value=""></option>
+            <option value="incluye">
+              Cascos, arnés, cuerda, equipos de seguridad, supervisión 100%:
+            </option>
+          </select>
+        </label>
+        <label for="adicional"
+          >Adicional:
+          <input type="text" id="adicional" name="adicional" />
+        </label>
+        <button type="button" onclick="generarCotizacion()">
+          Generar Cotización
+        </button>
+      </div>
     </form>
-    <script src="assets/js/index.js">
-    </script>
-</body>
+    <script src="assets/js/index.js"></script>
+  </body>
 </html>
